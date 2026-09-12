@@ -50,17 +50,18 @@
 <p>To plan a trip, the app sends requests to our own server, which we run at Hetzner Online. Each request contains only what is needed to answer it:</p>
 <ul>
   <li><strong>Trip requests</strong> — the start and end coordinates of the trip (your current location, if you plan from where you are), the date and time, and whether you want to depart or arrive by that time.</li>
-  <li><strong>Place search</strong> — the text you type, and your approximate position so that nearby places are listed first.</li>
+  <li><strong>Place search (Android and web)</strong> — the text you type, and your approximate position so that nearby places are listed first. On iPhone and Apple Watch, place search is handled by Apple Maps instead and never reaches our server.</li>
   <li><strong>Scooters and zones</strong> — the area of the trip, so we can show nearby scooters and the areas where scooters may not ride or park.</li>
   <li><strong>Nearby information on Apple Watch and in widgets</strong> — your location, to show the closest scooters and transit.</li>
   <li><strong>An installation ID</strong> — the iPhone and Android apps create a random ID when first opened and send it with trip requests, so we can count how many installations use the service. It is not linked to your name, email, phone number or advertising ID, and reinstalling the app creates a new one. The web app and the watch do not send it.</li>
 </ul>
 <p>Like any web server, ours logs the IP address, time and address of each request for operation and security. We keep these logs for a limited period, do not use them to build profiles, and do not sell or share them.</p>
-<p>To answer a place search, our server forwards the search text (without your IP address) to the Photon geocoder run by komoot. Transit timetables and live data come from Israel's Ministry of Transport; scooter data comes from the operators' public feeds. None of these receive information about you.</p>
+<p>To answer a place search from Android or the web, our server forwards the search text (without your IP address) to the Photon geocoder run by komoot. Transit timetables and live data come from Israel's Ministry of Transport; scooter data comes from the operators' public feeds. None of these receive information about you.</p>
 
 <h2>What your device sends directly to third parties</h2>
 <ul>
   <li><strong>OpenStreetMap tile servers</strong> (<code>tile.openstreetmap.org</code>) — when you view the map, your device requests map images for the area shown, which reveals your IP address and that area. See the <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OSMF Privacy Policy</a>.</li>
+  <li><strong>Apple Maps</strong> (iPhone and Apple Watch) — place search uses Apple's MapKit, which sends the text you type and your approximate location to Apple. See <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
   <li><strong>unpkg.com</strong> — the iPhone app and the web app load the open-source Leaflet map library from this public CDN, which receives your IP address.</li>
   <li><strong>Scooter operators</strong> — if you tap a scooter and choose to open it, the operator's app or website (Lime, Bird or Dott) opens, and their privacy policy applies from then on.</li>
 </ul>
@@ -94,7 +95,7 @@
   <ul>
     <li>אין צורך בחשבון, אין פרסומות ואין מעקב.</li>
     <li>בית, עבודה, חיפושים אחרונים ושפה נשמרים רק במכשיר שלכם.</li>
-    <li>כדי לתכנן מסלול נשלחים לשרת שלנו נקודות ההתחלה והסיום, השעה וטקסט החיפוש. לצורך ספירת התקנות נשלח גם מזהה התקנה אקראי, שאינו קשור לשם, למייל או למזהה פרסום.</li>
+    <li>כדי לתכנן מסלול נשלחים לשרת שלנו נקודות ההתחלה והסיום והשעה. באנדרואיד ובאתר נשלח גם טקסט החיפוש; באייפון החיפוש עובר דרך Apple Maps. לצורך ספירת התקנות נשלח גם מזהה התקנה אקראי, שאינו קשור לשם, למייל או למזהה פרסום.</li>
     <li>מפות מגיעות מ־OpenStreetMap, שמקבלים את כתובת ה־IP ואת האזור שמוצג.</li>
     <li>שאלות ובקשות: <a href="mailto:shrnshlm@gmail.com">shrnshlm@gmail.com</a></li>
   </ul>
